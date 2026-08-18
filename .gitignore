@@ -30,3 +30,29 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# Generated files by hugo
+/public/
+/resources/_gen/
+/assets/jsconfig.json
+hugo_stats.json
+
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
+
+# Temporary lock file while building
+/.hugo_build.lock
+
+# Mac OS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code specific files
+.vscode/
+*.code-workspace
+
+# Optional: Local history extension logs
+.history/

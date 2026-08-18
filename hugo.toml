@@ -1,0 +1,4 @@
+baseURL = 'https://contestthemindfield.github.io/'
+locale = 'en-us'
+title = 'Contest the Mindfield'
+theme = 'ananke'
