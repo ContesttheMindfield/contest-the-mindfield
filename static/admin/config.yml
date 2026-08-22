@@ -64,12 +64,12 @@ collections:
         search_fields:
           - title
           - name
-        value_field: "{{slug}}"
+        value_field: "{{fields.title}}"
         display_fields:
           - title
         multiple: true
         min: 1
-        hint: Create the English author profile first, then select its stable slug here.
+        hint: Create the English author profile first, then select it here.
       - label: Categories
         name: categories
         widget: list
@@ -188,12 +188,12 @@ collections:
         search_fields:
           - title
           - name
-        value_field: "{{slug}}"
+        value_field: "{{fields.title}}"
         display_fields:
           - title
         multiple: true
         min: 1
-        hint: Crie primeiro o perfil do autor em português e selecione o slug estável aqui.
+        hint: Crie primeiro o perfil do autor em português e selecione-o aqui.
       - label: Categorias
         name: categories
         widget: list

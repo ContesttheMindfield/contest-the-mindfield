@@ -4,12 +4,13 @@ date: 2026-08-22T17:59:00.000-03:00
 draft: false
 type: post
 authors:
-  - contest-the-mindfield/_index
+  - Contest the Mindfield
 categories: []
 tags: []
 series: []
 toc: false
 cover: ros_art_008.jpeg
+alt: Aurora, Shooting Star, surrounded by blue energy in a crystalline landscape.
 math: false
 mathJax: false
 hljs: false

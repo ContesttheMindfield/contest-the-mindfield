@@ -1,0 +1,30 @@
+{{- $subtitle := .Params.Subtitle -}}
+{{- $isPost := eq (lower .Params.type) (or "post" "articles") -}}
+
+{{- if $subtitle }}
+    <hgroup data-bionRead-safe>
+        <h1 id="title"
+            {{- if $isPost }}
+                data-pagefind-meta="title"
+            {{- end }}
+            >{{ .Title }}</h1>
+        <p class="subtitle" role="doc-subtitle">{{ $subtitle }}</p>
+    </hgroup>
+{{- else }}
+    <h1 id="title"
+        {{- if $isPost }}
+            data-pagefind-meta="title"
+        {{- end }}
+        data-bionRead-safe
+        >{{ .Title }}</h1>
+{{- end }}
+
+{{- if $isPost -}}
+    {{- $cover := partial "page/cover.html" (dict "page" .) -}}
+    {{- $alt := or .Params.alt .Params.coverAlt .Params.imagesAlt -}}
+    {{- with $cover }}
+        <figure id="doc-cover">
+            <img src="{{ . }}" alt="{{ with $alt }}{{ . }}{{ else }}{{ i18n "featuredImg" }}: {{ $.Title }}{{ end }}">
+        </figure>
+    {{- end }}
+{{- end }}
