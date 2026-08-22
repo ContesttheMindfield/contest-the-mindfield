@@ -3,6 +3,7 @@ backend:
   repo: ContesttheMindfield/contestthemindfield.github.io
   branch: main
   squash_merges: true
+  site_domain: contestthemindfield.netlify.app
 
 publish_mode: editorial_workflow
 local_backend: true
