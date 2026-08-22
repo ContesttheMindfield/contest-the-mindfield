@@ -1,0 +1,34 @@
+[seach]
+  other = 'Pesquisar'
+
+[authors]
+  one = 'Autor'
+  other = 'Autores'
+
+[posts]
+  one = 'Artigo'
+  other = 'Artigos'
+
+[postsBy]
+  other = 'Artigos de'
+
+[postsOn]
+  other = 'Artigos sobre'
+
+[protanopia]
+  other = 'Protanopia'
+
+[print]
+  other = 'Imprimir'
+
+[recent]
+  other = 'Artigos recentes'
+
+[readingTime]
+  other = 'min de leitura'
+
+[redactionHistory]
+  other = 'Histórico de redação'
+
+[redactionNotes]
+  other = 'Algumas informações podem mudar com o tempo; mantemos este histórico atualizado.'

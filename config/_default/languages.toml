@@ -1,0 +1,44 @@
+[en]
+  contentDir = 'content/en'
+  disabled = false
+  locale = 'en-US'
+  direction = 'ltr'
+  label = 'English'
+  title = 'Contest the Mindfield'
+  weight = 1
+
+  [en.pagination]
+    disableAliases = false
+    pagerSize = 8
+    path = 'page'
+
+  [en.params]
+    description = 'A blog about the card game Flesh and Blood.'
+    copyright = """Contest the Mindfield is in no way affiliated with Legend Story Studios®.
+
+Flesh and Blood™ is a registered trademark of Legend Story Studios.
+
+Flesh and Blood™ and all associated images are copyright © Legend Story Studios. All rights reserved."""
+
+[pt-br]
+  contentDir = 'content/pt-br'
+  disabled = false
+  locale = 'pt-BR'
+  direction = 'ltr'
+  label = 'Português (Brasil)'
+  title = 'Contest the Mindfield'
+  weight = 2
+
+  [pt-br.pagination]
+    disableAliases = false
+    pagerSize = 8
+    path = 'page'
+
+  [pt-br.params]
+    description = 'Um blog sobre o jogo de cartas Flesh and Blood.'
+    copyright = """Contest the Mindfield não possui qualquer afiliação com a Legend Story Studios®.
+
+Flesh and Blood™ é uma marca registrada da Legend Story Studios.
+
+Flesh and Blood™ e todas as imagens associadas são protegidos por direitos autorais © Legend Story Studios. Todos os direitos reservados."""
+

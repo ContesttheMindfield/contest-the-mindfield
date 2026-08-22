@@ -1,0 +1,5 @@
+---
+title: 'Categorias'
+translationKey: 'categories'
+---
+

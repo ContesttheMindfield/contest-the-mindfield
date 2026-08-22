@@ -1,0 +1,5 @@
+---
+title: 'Tags'
+translationKey: 'tags'
+---
+

@@ -1,0 +1,506 @@
+backend:
+  name: github
+  repo: ContesttheMindfield/contestthemindfield.github.io
+  branch: main
+  squash_merges: true
+
+publish_mode: editorial_workflow
+local_backend: true
+
+site_url: https://contestthemindfield.github.io
+display_url: https://contestthemindfield.github.io
+
+media_folder: static/uploads
+public_folder: /uploads
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: en_articles
+    label: Articles — English
+    label_singular: English article
+    description: English articles published under /en/articles/.
+    folder: content/en/articles
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    frontmatter_delimiter: "---"
+    slug: "{{slug}}"
+    path: "{{slug}}/index"
+    preview_path: "en/articles/{{slug}}/"
+    media_folder: ""
+    public_folder: ""
+    summary: "{{title}} — {{date}}"
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Publication date
+        name: date
+        widget: datetime
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: false
+        hint: Keep enabled only when the page must remain hidden after the editorial workflow publishes it.
+      - label: Content type
+        name: type
+        widget: hidden
+        default: post
+      - label: Description
+        name: description
+        widget: text
+        required: false
+        hint: A concise summary used in article listings and metadata.
+      - label: Authors
+        name: authors
+        widget: relation
+        collection: en_authors
+        search_fields:
+          - title
+          - name
+        value_field: "{{slug}}"
+        display_fields:
+          - title
+        multiple: true
+        min: 1
+        hint: Create the English author profile first, then select its stable slug here.
+      - label: Categories
+        name: categories
+        widget: list
+        required: false
+        default: []
+        hint: Use established category names consistently.
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        default: []
+      - label: Series
+        name: series
+        widget: list
+        required: false
+        default: []
+      - label: Translation key
+        name: translationKey
+        widget: string
+        required: false
+        hint: Use the same non-empty value on the Portuguese translation.
+      - label: Show table of contents
+        name: toc
+        widget: boolean
+        default: true
+      - label: Cover image
+        name: cover
+        widget: image
+        required: false
+        hint: Stored in this article's page bundle. Add descriptive alt text below.
+      - label: Cover alt text
+        name: alt
+        widget: string
+        required: false
+      - label: Audio file
+        name: audio
+        widget: file
+        required: false
+        hint: Optional audio stored in this article's page bundle.
+      - label: Enable KaTeX
+        name: math
+        widget: boolean
+        default: false
+        hint: Enable only one math renderer per article.
+      - label: Enable MathJax
+        name: mathJax
+        widget: boolean
+        default: false
+        hint: Enable only one math renderer per article.
+      - label: Enable Highlight.js
+        name: hljs
+        widget: boolean
+        default: false
+        hint: Use only when Hugo's built-in syntax highlighting is insufficient.
+      - label: Editorial history
+        name: history
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{fields.date}} — {{fields.author}}"
+        hint: Add entries only for meaningful editorial changes.
+        fields:
+          - label: Date
+            name: date
+            widget: datetime
+          - label: Author
+            name: author
+            widget: string
+          - label: Note
+            name: note
+            widget: text
+      - label: Body
+        name: body
+        widget: markdown
+
+  - name: pt_br_articles
+    label: Artigos — Português (Brasil)
+    label_singular: Artigo em português
+    description: Artigos em português publicados em /pt-br/articles/.
+    folder: content/pt-br/articles
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    frontmatter_delimiter: "---"
+    slug: "{{slug}}"
+    path: "{{slug}}/index"
+    preview_path: "pt-br/articles/{{slug}}/"
+    media_folder: ""
+    public_folder: ""
+    summary: "{{title}} — {{date}}"
+    fields:
+      - label: Título
+        name: title
+        widget: string
+      - label: Data de publicação
+        name: date
+        widget: datetime
+      - label: Rascunho
+        name: draft
+        widget: boolean
+        default: false
+        hint: Ative apenas quando a página deva permanecer oculta após a publicação pelo fluxo editorial.
+      - label: Tipo de conteúdo
+        name: type
+        widget: hidden
+        default: post
+      - label: Descrição
+        name: description
+        widget: text
+        required: false
+        hint: Um resumo curto usado nas listas de artigos e nos metadados.
+      - label: Autores
+        name: authors
+        widget: relation
+        collection: pt_br_authors
+        search_fields:
+          - title
+          - name
+        value_field: "{{slug}}"
+        display_fields:
+          - title
+        multiple: true
+        min: 1
+        hint: Crie primeiro o perfil do autor em português e selecione o slug estável aqui.
+      - label: Categorias
+        name: categories
+        widget: list
+        required: false
+        default: []
+        hint: Use os nomes de categorias existentes de forma consistente.
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        default: []
+      - label: Séries
+        name: series
+        widget: list
+        required: false
+        default: []
+      - label: Chave de tradução
+        name: translationKey
+        widget: string
+        required: false
+        hint: Use o mesmo valor não vazio na tradução em inglês.
+      - label: Mostrar sumário
+        name: toc
+        widget: boolean
+        default: true
+      - label: Imagem de capa
+        name: cover
+        widget: image
+        required: false
+        hint: Armazenada no pacote desta página. Adicione abaixo um texto alternativo descritivo.
+      - label: Texto alternativo da capa
+        name: alt
+        widget: string
+        required: false
+      - label: Arquivo de áudio
+        name: audio
+        widget: file
+        required: false
+        hint: Áudio opcional armazenado no pacote desta página.
+      - label: Ativar KaTeX
+        name: math
+        widget: boolean
+        default: false
+        hint: Ative apenas um renderizador matemático por artigo.
+      - label: Ativar MathJax
+        name: mathJax
+        widget: boolean
+        default: false
+        hint: Ative apenas um renderizador matemático por artigo.
+      - label: Ativar Highlight.js
+        name: hljs
+        widget: boolean
+        default: false
+        hint: Use apenas quando o realce de sintaxe do Hugo for insuficiente.
+      - label: Histórico editorial
+        name: history
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{fields.date}} — {{fields.author}}"
+        hint: Adicione entradas apenas para alterações editoriais relevantes.
+        fields:
+          - label: Data
+            name: date
+            widget: datetime
+          - label: Autor
+            name: author
+            widget: string
+          - label: Nota
+            name: note
+            widget: text
+      - label: Conteúdo
+        name: body
+        widget: markdown
+
+  - name: en_authors
+    label: Authors — English
+    label_singular: English author
+    description: English contributor profiles referenced by English articles.
+    folder: content/en/authors
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    frontmatter_delimiter: "---"
+    slug: "{{slug}}"
+    path: "{{slug}}/_index"
+    preview_path: "en/authors/{{slug}}/"
+    media_folder: ""
+    public_folder: ""
+    summary: "{{title}}"
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: The public display name and the source of the stable profile slug.
+      - label: Name
+        name: name
+        widget: string
+        hint: Usually the same as the title; retained for theme and metadata compatibility.
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: false
+      - label: Translation key
+        name: translationKey
+        widget: string
+        required: false
+        hint: Use the same non-empty value on the Portuguese profile.
+      - label: Portrait
+        name: cover
+        widget: image
+        required: false
+        hint: Stored as bundle-local media. Add descriptive alt text below.
+      - label: Portrait alt text
+        name: alt
+        widget: string
+        required: false
+      - label: Biography
+        name: body
+        widget: markdown
+
+  - name: pt_br_authors
+    label: Autores — Português (Brasil)
+    label_singular: Autor em português
+    description: Perfis em português referenciados pelos artigos em português.
+    folder: content/pt-br/authors
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    frontmatter_delimiter: "---"
+    slug: "{{slug}}"
+    path: "{{slug}}/_index"
+    preview_path: "pt-br/authors/{{slug}}/"
+    media_folder: ""
+    public_folder: ""
+    summary: "{{title}}"
+    fields:
+      - label: Título
+        name: title
+        widget: string
+        hint: O nome público e a origem do slug estável do perfil.
+      - label: Nome
+        name: name
+        widget: string
+        hint: Normalmente igual ao título; mantido para compatibilidade com o tema e os metadados.
+      - label: Rascunho
+        name: draft
+        widget: boolean
+        default: false
+      - label: Chave de tradução
+        name: translationKey
+        widget: string
+        required: false
+        hint: Use o mesmo valor não vazio no perfil em inglês.
+      - label: Retrato
+        name: cover
+        widget: image
+        required: false
+        hint: Armazenado como mídia local do pacote. Adicione abaixo um texto alternativo descritivo.
+      - label: Texto alternativo do retrato
+        name: alt
+        widget: string
+        required: false
+      - label: Biografia
+        name: body
+        widget: markdown
+
+  - name: en_pages
+    label: Pages — English
+    description: Fixed English pages and section indexes.
+    delete: false
+    format: yaml-frontmatter
+    frontmatter_delimiter: "---"
+    files:
+      - name: home
+        label: Home
+        file: content/en/_index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Translation key, name: translationKey, widget: hidden, default: home }
+          - { label: Body, name: body, widget: markdown, required: false }
+      - name: about
+        label: About
+        file: content/en/about.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Translation key, name: translationKey, widget: hidden, default: about }
+          - { label: Body, name: body, widget: markdown }
+      - name: footer
+        label: Footer
+        file: content/en/footer.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Translation key, name: translationKey, widget: hidden, default: footer }
+          - { label: Content type, name: type, widget: hidden, default: footer }
+          - { label: Weight, name: weight, widget: hidden, default: 1 }
+          - { label: Target, name: target, widget: hidden, default: /en/ }
+          - { label: Body, name: body, widget: markdown }
+      - name: articles_index
+        label: Articles index
+        file: content/en/articles/_index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Translation key, name: translationKey, widget: hidden, default: articles }
+          - label: Sitemap
+            name: sitemap
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Change frequency, name: changeFreq, widget: hidden, default: monthly }
+          - { label: Body, name: body, widget: markdown, required: false }
+      - name: authors_index
+        label: Authors index
+        file: content/en/authors/_index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Translation key, name: translationKey, widget: hidden, default: authors }
+          - { label: Body, name: body, widget: markdown, required: false }
+      - name: categories_index
+        label: Categories index
+        file: content/en/categories/_index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Translation key, name: translationKey, widget: hidden, default: categories }
+          - { label: Body, name: body, widget: markdown, required: false }
+      - name: tags_index
+        label: Tags index
+        file: content/en/tags/_index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Translation key, name: translationKey, widget: hidden, default: tags }
+          - { label: Body, name: body, widget: markdown, required: false }
+      - name: series_index
+        label: Series index
+        file: content/en/series/_index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Translation key, name: translationKey, widget: hidden, default: series }
+          - { label: Body, name: body, widget: markdown, required: false }
+
+  - name: pt_br_pages
+    label: Páginas — Português (Brasil)
+    description: Páginas fixas e índices de seções em português.
+    delete: false
+    format: yaml-frontmatter
+    frontmatter_delimiter: "---"
+    files:
+      - name: home
+        label: Início
+        file: content/pt-br/_index.md
+        fields:
+          - { label: Título, name: title, widget: string }
+          - { label: Chave de tradução, name: translationKey, widget: hidden, default: home }
+          - { label: Conteúdo, name: body, widget: markdown, required: false }
+      - name: about
+        label: Sobre
+        file: content/pt-br/about.md
+        fields:
+          - { label: Título, name: title, widget: string }
+          - { label: Chave de tradução, name: translationKey, widget: hidden, default: about }
+          - { label: Conteúdo, name: body, widget: markdown }
+      - name: footer
+        label: Rodapé
+        file: content/pt-br/footer.md
+        fields:
+          - { label: Título, name: title, widget: string }
+          - { label: Chave de tradução, name: translationKey, widget: hidden, default: footer }
+          - { label: Tipo de conteúdo, name: type, widget: hidden, default: footer }
+          - { label: Peso, name: weight, widget: hidden, default: 1 }
+          - { label: Destino, name: target, widget: hidden, default: /pt-br/ }
+          - { label: Conteúdo, name: body, widget: markdown }
+      - name: articles_index
+        label: Índice de artigos
+        file: content/pt-br/articles/_index.md
+        fields:
+          - { label: Título, name: title, widget: string }
+          - { label: Chave de tradução, name: translationKey, widget: hidden, default: articles }
+          - label: Mapa do site
+            name: sitemap
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Frequência de alteração, name: changeFreq, widget: hidden, default: monthly }
+          - { label: Conteúdo, name: body, widget: markdown, required: false }
+      - name: authors_index
+        label: Índice de autores
+        file: content/pt-br/authors/_index.md
+        fields:
+          - { label: Título, name: title, widget: string }
+          - { label: Chave de tradução, name: translationKey, widget: hidden, default: authors }
+          - { label: Conteúdo, name: body, widget: markdown, required: false }
+      - name: categories_index
+        label: Índice de categorias
+        file: content/pt-br/categories/_index.md
+        fields:
+          - { label: Título, name: title, widget: string }
+          - { label: Chave de tradução, name: translationKey, widget: hidden, default: categories }
+          - { label: Conteúdo, name: body, widget: markdown, required: false }
+      - name: tags_index
+        label: Índice de tags
+        file: content/pt-br/tags/_index.md
+        fields:
+          - { label: Título, name: title, widget: string }
+          - { label: Chave de tradução, name: translationKey, widget: hidden, default: tags }
+          - { label: Conteúdo, name: body, widget: markdown, required: false }
+      - name: series_index
+        label: Índice de séries
+        file: content/pt-br/series/_index.md
+        fields:
+          - { label: Título, name: title, widget: string }
+          - { label: Chave de tradução, name: translationKey, widget: hidden, default: series }
+          - { label: Conteúdo, name: body, widget: markdown, required: false }

@@ -1,0 +1,14 @@
+#logo #logotype {
+  width: 34rem;
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  #logo #logotype {
+    width: 100%;
+  }
+
+  #logo #logotype__text {
+    font-size: 14pt;
+  }
+}

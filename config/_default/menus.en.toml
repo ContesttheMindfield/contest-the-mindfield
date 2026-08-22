@@ -1,0 +1,44 @@
+[[main]]
+  name = 'Articles'
+  identifier = 'articles'
+  pageRef = '/articles'
+  weight = 1
+
+[[main]]
+  name = 'Categories'
+  identifier = 'categories'
+  pageRef = '/categories'
+  weight = 2
+
+[[more]]
+  name = 'About'
+  identifier = 'about'
+  pageRef = '/about'
+  weight = 1
+
+[[more]]
+  name = 'Authors'
+  identifier = 'authors'
+  pageRef = '/authors'
+  weight = 2
+
+[[more]]
+  name = 'Tags'
+  identifier = 'tags'
+  pageRef = '/tags'
+  weight = 3
+
+[[footer]]
+  name = 'Email'
+  identifier = 'email'
+  url = 'mailto:contestthemindfield@gmail.com'
+  pre = 'email'
+  weight = 1
+
+[[footer]]
+  name = 'RSS'
+  identifier = 'rss'
+  url = '/en/index.xml'
+  pre = 'rss'
+  weight = 2
+

@@ -1,6 +1,3 @@
 [submodule "themes/hugo-brewm"]
 	path = themes/hugo-brewm
 	url = https://github.com/foxihd/hugo-brewm
-[submodule "themes/ananke"]
-	path = themes/ananke
-	url = https://github.com/gohugo-ananke/ananke

@@ -1,0 +1,133 @@
+baseURL = 'https://contestthemindfield.github.io/'
+title = 'Contest the Mindfield'
+theme = 'hugo-brewm'
+
+enableGitInfo = true
+canonifyURLs = true
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = true
+enableMissingTranslationPlaceholders = true
+enableRobotsTXT = true
+ignoreFiles = ['\.redacted', '\.old', '\.bak', '\.tmp', '\.swp', '\.DS_Store']
+
+[frontmatter]
+  date = [':default']
+  expiryDate = ['expiryDate', 'unpublishdate', ':default']
+  lastmod = ['lastmod', ':git', ':default']
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
+
+  [markup.highlight]
+    codeFences = true
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = false
+    tabWidth = 4
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$'], ['\begin{equation}', '\end{equation}'], ['\begin{align}', '\end{align}']]
+          inline = [['\(', '\)'], ['$', '$']]
+
+[outputs]
+  home = ['html', 'rss', 'json']
+
+[services]
+  [services.rss]
+    limit = -1
+
+[taxonomies]
+  author = 'authors'
+  category = 'categories'
+  tag = 'tags'
+  series = 'series'
+
+[related]
+  includeNewer = true
+  threshold = 20
+  toLower = true
+
+  [[related.indices]]
+    name = 'series'
+    weight = 100
+
+  [[related.indices]]
+    name = 'categories'
+    weight = 80
+
+  [[related.indices]]
+    name = 'tags'
+    weight = 60
+
+  [[related.indices]]
+    name = 'date'
+    weight = 10
+
+[params]
+  title = 'Contest the Mindfield'
+  description = 'A blog about the card game Flesh and Blood.'
+  extMeta = true
+  coffeeStat = false
+  AllowAIRobots = false
+  ZenMode = false
+  DisableFootBar = false
+  unifiedFooter = true
+
+  [params.author]
+    name = 'Contest the Mindfield'
+    email = 'contestthemindfield@gmail.com'
+
+  [params.comments]
+    disabled = true
+
+  [params.logo]
+    logoType = true
+
+  [params.feed]
+    flowlines = false
+    flowlinesLimit = 21
+
+  [params.home]
+    disableSlide = true
+    disableListing = true
+    includeSectionInJson = false
+
+  [params.posts]
+    justifying = false
+    noIndent = false
+    sfdefault = false
+    colophon = false
+    disableHistory = false
+    related = true
+    RelatedLimit = 5
+    share = true
+    secnum = false
+
+  [params.RSS]
+    limit = 15
+    content = 15
+
+  [params.search]
+    enable = true
+    pagefind = true
+
+  [params.socialCard]
+    enable = true
+    images = 'https://repository-images.githubusercontent.com/923527728/46a32a19-69ac-45b3-91a4-c4d299fb234b'
+
+  [params.typeface]
+    webSafe = false
+    roman = 'crimson'
+    sans = 'inter'
+    localHost = false
+

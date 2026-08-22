@@ -1,0 +1,15 @@
+{
+  "name": "contest-the-mindfield",
+  "private": true,
+  "scripts": {
+    "build": "hugo --minify --gc --cleanDestinationDir",
+    "index": "pagefind --site public",
+    "build:search": "npm run build && npm run index"
+  },
+  "devDependencies": {
+    "pagefind": "1.5.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
