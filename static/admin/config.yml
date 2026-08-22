@@ -4,12 +4,13 @@ backend:
   branch: main
   squash_merges: true
   site_domain: contestthemindfield.netlify.app
+  site_url: https://contestthemindfield.github.io/
 
 publish_mode: editorial_workflow
 local_backend: true
 
-site_url: https://contestthemindfield.github.io
-display_url: https://contestthemindfield.github.io
+
+display_url: https://contestthemindfield.github.io/
 
 media_folder: static/uploads
 public_folder: /uploads
